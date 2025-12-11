@@ -1,6 +1,8 @@
-```# 🌌 Space Amicable Pairs Finder 🌌
+```
+# 🌌 Space Amicable Pairs Finder 🌌
 
-An interactive web application that calculates and displays amicable pairs of numbers below a user-defined limit, all wrapped in a space-themed aesthetic.
+An interactive web application that calculates and displays amicable pairs of numbers below a user-defined limit,
+all wrapped in a space-themed aesthetic.
 
 ---
 
