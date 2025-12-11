@@ -1,0 +1,59 @@
+// Attach event listener to button
+document.getElementById('findBtn').addEventListener('click', () => {
+  const limitInput = document.getElementById('limit').value;
+  const limit = parseInt(limitInput, 10);
+  const resultList = document.getElementById('resultList');
+
+  resultList.innerHTML = '';
+
+  if (isNaN(limit) || limit < 2) {
+    alert('Please enter a valid number greater than 1.');
+    return;
+  }
+
+  const pairs = findAmicablePairs(limit);
+
+  if (pairs.length === 0) {
+    resultList.innerHTML = '<li>No amicable pairs found below ' + limit + '.</li>';
+  } else {
+    pairs.forEach(pair => {
+      const li = document.createElement('li');
+      li.textContent = `[${pair[0]}, ${pair[1]}]`;
+      resultList.appendChild(li);
+    });
+  }
+});
+
+// Helper function to compute sum of proper divisors
+function propDivsSum(n) {
+  let sum = 1;
+  const sqrtN = Math.sqrt(n);
+  for (let i = 2; i <= sqrtN; i++) {
+    if (n % i === 0) {
+      sum += i;
+      const otherDiv = n / i;
+      if (otherDiv !== i) {
+        sum += otherDiv;
+      }
+    }
+  }
+  return sum;
+}
+
+// Function to find amicable pairs up to a limit
+function findAmicablePairs(limit) {
+  const pairs = [];
+  const checked = new Set();
+
+  for (let n = 2; n < limit; n++) {
+    const m = propDivsSum(n);
+    if (m !== n && m < limit && propDivsSum(m) === n) {
+      if (n < m && !checked.has(n) && !checked.has(m)) {
+        pairs.push([n, m]);
+        checked.add(n);
+        checked.add(m);
+      }
+    }
+  }
+  return pairs;
+}
