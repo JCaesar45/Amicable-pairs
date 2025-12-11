@@ -1,0 +1,90 @@
+/* Space-themed CSS styling */
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b, #0d1b2a);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.container {
+  background-color: rgba(0, 0, 20, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00ffff;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.input-section {
+  margin-bottom: 20px;
+}
+
+#limit {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1em;
+  width: 60%;
+  max-width: 150px;
+  margin-left: 10px;
+  background-color: #222;
+  color: #fff;
+}
+
+#findBtn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #00ffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#findBtn:hover {
+  background-color: #00cccc;
+}
+
+.result-section {
+  max-height: 300px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+h2 {
+  color: #00ffff;
+  margin-bottom: 10px;
+}
+
+#resultList {
+  list-style-type: none;
+  padding: 0;
+}
+
+#resultList li {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+#resultList li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
