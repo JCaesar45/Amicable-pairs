@@ -1,0 +1,35 @@
+function propDivsSum(n) {
+  let sum = 1; // 1 is always a proper divisor (except for 1 itself)
+  let sqrtN = Math.sqrt(n);
+  for (let i = 2; i <= sqrtN; i++) {
+    if (n % i === 0) {
+      sum += i;
+      let otherDiv = n / i;
+      if (otherDiv !== i) {
+        sum += otherDiv;
+      }
+    }
+  }
+  return sum;
+}
+
+function amicablePairsUpTo(limit) {
+  const pairs = [];
+  const checked = new Set();
+
+  for (let n = 2; n < limit; n++) {
+    const m = propDivsSum(n);
+    if (m !== n && m < limit && propDivsSum(m) === n) {
+      // To avoid duplicates, ensure n < m
+      if (n < m && !checked.has(n) && !checked.has(m)) {
+        pairs.push([n, m]);
+        checked.add(n);
+        checked.add(m);
+      }
+    }
+  }
+  return pairs;
+}
+
+// Example usage:
+console.log(amicablePairsUpTo(20000));
